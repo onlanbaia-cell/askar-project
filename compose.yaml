@@ -1,0 +1,16 @@
+﻿services:
+  website:
+    build: ./website
+    ports:
+      - "8082:80"
+
+  database:
+    build: ./database
+    environment:
+      MYSQL_ROOT_PASSWORD: Test12345
+      MYSQL_DATABASE: askar_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
